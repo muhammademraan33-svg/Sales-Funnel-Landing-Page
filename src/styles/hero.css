@@ -1,0 +1,650 @@
+/* ==========================================================================
+   Hero. Two layouts share one markup:
+   - "reel"  (phones, portrait tablets): the footage fills the screen like the
+     Instagram reel it came from, title and booking button over the bottom.
+   - "stage" (landscape, 900px+): a hand-built Vice City sunset with the
+     footage playing in a slanted screen, title in the sky, booking on the water.
+   ========================================================================== */
+.hero {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  background: var(--night);
+  --dim: 0;
+}
+
+/* dims the scene as the page slides up over it */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  background: var(--ink);
+  opacity: var(--dim);
+  pointer-events: none;
+}
+
+.hero__stage {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--header-h) var(--pad) calc(22px + env(safe-area-inset-bottom));
+}
+
+.scene,
+.hero__ambient,
+.hero__screen-glow,
+.hero__screen-frame,
+.hero__scroll {
+  display: none;
+}
+
+.hero__screen,
+.hero__screen-clip {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__screen-clip {
+  overflow: hidden;
+  background: var(--night);
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 3, 15, 0.66) 0%,
+    rgba(5, 3, 15, 0) 20%,
+    rgba(5, 3, 15, 0) 32%,
+    rgba(13, 11, 44, 0.5) 54%,
+    rgba(5, 3, 15, 0.9) 78%,
+    rgba(5, 3, 15, 0.97) 100%
+  );
+}
+
+/* ---- corners ---- */
+.hero__corner {
+  position: absolute;
+  top: calc(var(--header-h) + 4px);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--mute);
+  font-size: 0.6875rem;
+}
+
+.hero__corner--tl {
+  left: var(--pad);
+}
+
+.hero__corner--tr {
+  right: var(--pad);
+  font-variant-numeric: tabular-nums;
+}
+
+.rec {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--magenta);
+  box-shadow: 0 0 10px var(--magenta);
+  animation: rec 1.6s steps(2, jump-none) infinite;
+}
+
+@keyframes rec {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---- title lockup: script over heavy italic over a ruled brand line,
+        the same structure as the client's own cover art ---- */
+.hero__title {
+  position: relative;
+  z-index: 3;
+}
+
+.hero__script {
+  display: block;
+  width: max-content;
+  margin: 0 0 -0.3em 0.02em;
+  font-size: 14vw;
+  line-height: 1;
+  rotate: -7deg;
+  transform-origin: 0 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__word {
+  font-size: 23.4vw;
+  line-height: 0.8;
+  letter-spacing: -0.035em;
+  margin-left: -0.035em;
+  white-space: nowrap;
+  text-shadow: 0 0.02em 0.16em rgba(5, 3, 15, 0.55);
+  /* letters rise from below this edge */
+  clip-path: inset(-40% -10% -4% -10%);
+}
+
+.hero__letters span {
+  display: inline-block;
+  will-change: transform;
+}
+
+.hero__brand {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+  margin-top: 1.25em;
+  font-size: 2.9vw;
+  font-weight: 600;
+  letter-spacing: 0.62em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.hero__brand span {
+  margin-right: -0.62em;
+}
+
+.hero__brand i {
+  flex: 1;
+  height: 1px;
+  background: var(--pink);
+  box-shadow: 0 0 10px var(--magenta);
+  transform-origin: 0 50%;
+}
+
+.hero__brand i:last-child {
+  transform-origin: 100% 50%;
+}
+
+/* ---- pitch + booking button + facts ---- */
+.hero__bottom {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.hero__pitch {
+  max-width: 36ch;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--mute);
+}
+
+.hero__cta {
+  display: grid;
+  gap: 14px;
+}
+
+.hero__facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  font-size: 0.8125rem;
+  color: var(--mute);
+}
+
+.hero__facts dt {
+  display: none;
+}
+
+.hero__facts strong {
+  font-weight: 900;
+  font-style: italic;
+  font-stretch: 125%;
+  font-size: 1.125rem;
+  color: var(--foam);
+}
+
+.hero__times {
+  display: flex;
+  gap: 0.9em;
+  font-weight: 600;
+  color: var(--foam);
+}
+
+.hero__times span + span::before {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin-right: 0.9em;
+  border-radius: 50%;
+  background: var(--pink);
+  vertical-align: middle;
+}
+
+/* Short screens (landscape phones): keep the essentials above the fold. */
+@media (max-height: 520px) {
+  .hero__pitch,
+  .hero__corner {
+    display: none;
+  }
+
+  .hero__script {
+    font-size: 15vh;
+  }
+
+  .hero__word {
+    font-size: 30vh;
+  }
+
+  .hero__brand {
+    font-size: 3.4vh;
+    max-width: 105vh;
+  }
+
+  .hero__cta {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+}
+
+/* ============================================================== Stage layout */
+@media (min-width: 900px) and (min-aspect-ratio: 11/10) {
+  .hero__stage {
+    display: block;
+    padding: 0;
+  }
+
+  .hero__corner {
+    top: calc(var(--header-h) + 14px);
+    font-size: 0.75rem;
+  }
+
+  /* ---- the set ---- */
+  .scene {
+    display: block;
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    --horizon: 68%;
+    --sun-x: 75%;
+    /* a little wider than the screen it sets behind, so it shows either side */
+    --sun: min(53svh, 37vw);
+  }
+
+  .scene__sky {
+    position: absolute;
+    inset: 0 0 calc(100% - var(--horizon)) 0;
+    background: radial-gradient(62% 58% at var(--sun-x) 100%, rgba(243, 199, 84, 0.62) 0%, rgba(245, 121, 61, 0.48) 20%, rgba(252, 80, 176, 0.24) 46%, transparent 72%),
+      linear-gradient(180deg, #070419 0%, #170d4e 20%, #371a84 42%, #6a2aa8 62%, #b6339f 80%, #f0509e 93%, #f5793d 100%);
+  }
+
+  .scene__stars {
+    position: absolute;
+    inset: 0 0 62% 0;
+  }
+
+  .scene__stars i {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.2;
+    animation: twinkle 3s ease-in-out infinite;
+  }
+
+  @keyframes twinkle {
+    50% {
+      opacity: 0.95;
+    }
+  }
+
+  /* Placed with margins rather than translate: GSAP moves these, and it
+     owns their transform. */
+  .scene__sun,
+  .scene__sun-glow {
+    position: absolute;
+    left: var(--sun-x);
+    top: var(--horizon);
+    border-radius: 50%;
+  }
+
+  .scene__sun {
+    width: var(--sun);
+    height: var(--sun);
+    margin: calc(var(--sun) * -0.66) 0 0 calc(var(--sun) / -2);
+    background: linear-gradient(180deg, #fff6c2 0%, #f3c754 26%, #f5793d 58%, #f911ac 96%);
+    /* retro sun: bands open up towards the horizon */
+    -webkit-mask-image: linear-gradient(
+      180deg,
+      #000 0 48%,
+      transparent 48% 50%,
+      #000 50% 57%,
+      transparent 57% 60.5%,
+      #000 60.5% 67%,
+      transparent 67% 72%,
+      #000 72% 78%,
+      transparent 78% 84.5%,
+      #000 84.5% 89%,
+      transparent 89% 100%
+    );
+    mask-image: linear-gradient(
+      180deg,
+      #000 0 48%,
+      transparent 48% 50%,
+      #000 50% 57%,
+      transparent 57% 60.5%,
+      #000 60.5% 67%,
+      transparent 67% 72%,
+      #000 72% 78%,
+      transparent 78% 84.5%,
+      #000 84.5% 89%,
+      transparent 89% 100%
+    );
+  }
+
+  .scene__sun-glow {
+    --halo: calc(var(--sun) * 1.75);
+    width: var(--halo);
+    height: var(--halo);
+    /* centred on the sun's centre, which sits 0.16 sun-heights above the horizon */
+    margin: calc(var(--sun) * -0.16 - var(--halo) / 2) 0 0 calc(var(--halo) / -2);
+    background: radial-gradient(closest-side, rgba(245, 121, 61, 0.75), rgba(252, 80, 176, 0.35) 55%, transparent 100%);
+    opacity: 0.8;
+  }
+
+  .scene__skyline {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% - var(--horizon));
+    width: 100%;
+    height: 11svh;
+  }
+
+  .scene__water {
+    position: absolute;
+    inset: var(--horizon) 0 0 0;
+    overflow: hidden;
+    background: radial-gradient(34% 90% at var(--sun-x) 0, rgba(245, 121, 61, 0.55), rgba(252, 80, 176, 0.2) 42%, transparent 72%),
+      linear-gradient(180deg, #6a2f94 0%, #2a2a78 9%, #0f3757 32%, #082436 62%, var(--ink) 100%);
+    box-shadow: 0 -1px 0 rgba(255, 214, 170, 0.55);
+  }
+
+  .scene__ripples {
+    position: absolute;
+    inset: 0;
+  }
+
+  .scene__ripples i {
+    position: absolute;
+    height: 2px;
+    border-radius: 2px;
+    translate: -50% 0;
+    opacity: 0;
+    animation: ripple 3.4s ease-in-out infinite;
+  }
+
+  @keyframes ripple {
+    0%,
+    100% {
+      opacity: 0;
+      scale: 0.5 1;
+    }
+    50% {
+      opacity: var(--o, 0.7);
+      scale: 1 1;
+    }
+  }
+
+  .scene__palm {
+    position: absolute;
+    bottom: -3%;
+    height: 74svh;
+    width: auto;
+    aspect-ratio: 2 / 3;
+    transform-origin: 50% 100%;
+    animation: sway 7s ease-in-out infinite alternate;
+    overflow: visible;
+  }
+
+  .scene__palm--l1 {
+    left: -7svh;
+  }
+
+  .scene__palm--l2 {
+    left: 9svh;
+    height: 52svh;
+    opacity: 0.85;
+    animation-duration: 9s;
+    animation-delay: -3s;
+  }
+
+  .scene__palm--r1 {
+    right: -19svh;
+    height: 84svh;
+    animation-delay: -2s;
+  }
+
+  @keyframes sway {
+    from {
+      rotate: -1.2deg;
+    }
+    to {
+      rotate: 1.4deg;
+    }
+  }
+
+  .hero__shade {
+    background: linear-gradient(90deg, rgba(5, 3, 15, 0.42) 0%, rgba(5, 3, 15, 0) 52%), linear-gradient(180deg, rgba(5, 3, 15, 0.55) 0%, rgba(5, 3, 15, 0) 20%);
+  }
+
+  /* ---- the screen ---- (centred with margins; GSAP owns its transform) */
+  .hero__screen {
+    --h: min(72svh, 50vw);
+    --w: calc(var(--h) * 9 / 16);
+    inset: auto;
+    left: 75%;
+    top: 52%;
+    width: var(--w);
+    height: var(--h);
+    margin: calc(var(--h) / -2) 0 0 calc(var(--w) / -2);
+    z-index: 2;
+    --cut: polygon(11% 0, 100% 0, 89% 100%, 0 100%);
+  }
+
+  .hero__screen-clip {
+    clip-path: var(--cut);
+  }
+
+  .hero__screen-frame {
+    display: block;
+    position: absolute;
+    inset: -3px;
+    clip-path: var(--cut);
+    background: linear-gradient(172deg, var(--pink) 0%, var(--sun) 38%, var(--cyan) 100%);
+  }
+
+  .hero__screen-glow {
+    display: block;
+    position: absolute;
+    inset: -3px;
+    filter: blur(26px);
+    opacity: 0.75;
+  }
+
+  .hero__screen-glow i {
+    position: absolute;
+    inset: 0;
+    clip-path: var(--cut);
+    background: linear-gradient(172deg, var(--magenta) 0%, var(--orange) 45%, var(--aqua) 100%);
+  }
+
+  /* light from the footage spilling onto the set */
+  .hero__ambient {
+    display: block;
+    position: absolute;
+    left: -95%;
+    top: -25%;
+    width: 290%;
+    height: 150%;
+    opacity: 0.42;
+    filter: blur(40px) saturate(1.7);
+    -webkit-mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
+  }
+
+  .hero__video {
+    object-position: 50% 50%;
+  }
+
+  /* ---- title in the sky ---- */
+  .hero__title {
+    position: absolute;
+    left: var(--pad);
+    bottom: 45svh;
+  }
+
+  .hero__script {
+    font-size: min(7.4vw, 16.5svh);
+    margin: 0 0 -0.36em 0.1em;
+  }
+
+  /* sized so the last letter just touches the edge of the screen */
+  .hero__word {
+    font-size: min(15.2vw, 34svh);
+  }
+
+  .hero__brand {
+    width: 0;
+    min-width: 100%;
+    font-size: min(1.2vw, 2.5svh);
+    margin-top: 1.5em;
+  }
+
+  /* ---- booking on the water ---- */
+  .hero__bottom {
+    position: absolute;
+    left: var(--pad);
+    bottom: clamp(26px, 5svh, 52px);
+    margin: 0;
+    gap: clamp(14px, 2.4svh, 22px);
+  }
+
+  .hero__pitch {
+    max-width: 44ch;
+    font-size: clamp(0.9375rem, 1.15vw, 1.0625rem);
+  }
+
+  .hero__cta {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.6vw, 44px);
+  }
+
+  .hero__cta .btn {
+    min-height: 60px;
+    padding: 0 2em;
+  }
+
+  .hero__facts {
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: clamp(20px, 2.6vw, 44px);
+    font-size: 0.875rem;
+  }
+
+  .hero__facts dt {
+    display: block;
+    margin-bottom: 6px;
+    color: var(--dim);
+    font-size: 0.6875rem;
+  }
+
+  .hero__facts strong {
+    font-size: 1.5rem;
+  }
+
+  .hero__scroll {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    right: var(--pad);
+    bottom: clamp(26px, 5svh, 52px);
+    z-index: 3;
+    color: var(--mute);
+    writing-mode: vertical-rl;
+  }
+
+  .hero__scroll i {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(180deg, var(--pink), transparent);
+    animation: scroll-cue 2.2s var(--ease-io) infinite;
+    transform-origin: 50% 0;
+  }
+
+  @keyframes scroll-cue {
+    0% {
+      scale: 1 0;
+      transform-origin: 50% 0;
+    }
+    50% {
+      scale: 1 1;
+      transform-origin: 50% 0;
+    }
+    51% {
+      transform-origin: 50% 100%;
+    }
+    100% {
+      scale: 1 0;
+      transform-origin: 50% 100%;
+    }
+  }
+}
+
+@media (min-width: 900px) and (min-aspect-ratio: 11/10) and (max-height: 760px) {
+  .hero__corner {
+    display: none;
+  }
+}
+
+@media (min-width: 900px) and (min-aspect-ratio: 11/10) and (max-height: 640px) {
+  .hero__pitch {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scene__palm,
+  .scene__ripples i,
+  .scene__stars i,
+  .rec,
+  .hero__scroll i {
+    animation: none;
+  }
+
+  .scene__ripples i {
+    opacity: var(--o, 0.6);
+  }
+}

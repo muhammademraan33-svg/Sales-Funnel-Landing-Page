@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Miami Aqua Experience | Wake Surf &amp; eFoil Sessions in Miami Beach</title>
+    <meta
+      name="description"
+      content="Two-hour wake surfing and eFoil / e-surf sessions in Miami Beach. $350 per session. Pick a date, choose 9:30 AM, 12:30 PM or 3:30 PM and book online."
+    />
+    <meta name="theme-color" content="#0d0b2c" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Miami Aqua Experience | Wake Surf &amp; eFoil in Miami Beach" />
+    <meta property="og:description" content="Two hours on Miami Beach waters. Wake surfing or eFoil / e-surf, $350 per session. Book online." />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preload" as="image" href="/media/img/hero-poster.webp" fetchpriority="high" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+
+  <body>
+    <!-- Icon sprite -->
+    <svg class="sprite" aria-hidden="true" focusable="false">
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></symbol>
+      <symbol id="i-arrow-ne" viewBox="0 0 24 24"><path d="M7 17 17 7M8.5 7H17v8.5" /></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" /></symbol>
+      <symbol id="i-left" viewBox="0 0 24 24"><path d="m14.5 6-6 6 6 6" /></symbol>
+      <symbol id="i-right" viewBox="0 0 24 24"><path d="m9.5 6 6 6-6 6" /></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M6 12h12" /></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M6 12h12M12 6v12" /></symbol>
+      <symbol id="i-lock" viewBox="0 0 24 24"><path d="M7 11V8a5 5 0 0 1 10 0v3M5.5 11h13v9.5h-13z" /></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M4.5 6.5h15v13h-15zM4.5 10.5h15M8.5 4v4M15.5 4v4" /></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z" /></symbol>
+      <symbol id="i-instagram" viewBox="0 0 24 24">
+        <rect x="4" y="4" width="16" height="16" rx="4.5" />
+        <circle cx="12" cy="12" r="3.6" />
+        <circle cx="16.6" cy="7.4" r=".6" />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#book">Skip to booking</a>
+
+    <!-- Opening titles -->
+    <div class="preloader" data-preloader aria-hidden="true">
+      <div class="preloader__half preloader__half--top"></div>
+      <div class="preloader__half preloader__half--bottom"></div>
+      <div class="preloader__content">
+        <p class="preloader__brand">Miami Aqua Experience</p>
+        <p class="preloader__presents">presents</p>
+        <div class="preloader__bar"><span data-preloader-bar></span></div>
+        <p class="preloader__count"><span data-preloader-count>00</span></p>
+      </div>
+    </div>
+
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" data-cursor-el aria-hidden="true"><span data-cursor-label></span></div>
+
+    <header class="header" data-header>
+      <a class="logo" href="#top" aria-label="Miami Aqua Experience, back to top">
+        <span class="logo__word">Miami</span>
+        <span class="logo__script">Aqua</span>
+        <span class="logo__sub">Experience</span>
+      </a>
+      <nav class="nav" aria-label="Sections">
+        <a href="#rides">The rides</a>
+        <a href="#flight">Flight school</a>
+        <a href="#reel">The reel</a>
+      </nav>
+      <a class="btn btn--primary btn--small" href="#book" data-book>
+        <span>Book now</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+      </a>
+    </header>
+
+    <main>
+      <!-- ============================================================ HERO -->
+      <section class="hero" id="top" data-hero>
+        <div class="hero__stage">
+          <div class="scene" data-scene aria-hidden="true">
+            <div class="scene__sky"></div>
+            <div class="scene__stars" data-stars></div>
+            <div class="scene__sun-glow"></div>
+            <div class="scene__sun" data-sun></div>
+            <svg class="scene__skyline" data-skyline preserveAspectRatio="none"></svg>
+            <div class="scene__water"><div class="scene__ripples" data-ripples></div></div>
+            <svg class="scene__palm scene__palm--l1" data-palm="l1"></svg>
+            <svg class="scene__palm scene__palm--l2" data-palm="l2"></svg>
+            <svg class="scene__palm scene__palm--r1" data-palm="r1"></svg>
+          </div>
+
+          <div class="hero__screen" data-screen>
+            <canvas class="hero__ambient" data-ambient width="18" height="32" aria-hidden="true"></canvas>
+            <div class="hero__screen-glow" aria-hidden="true"><i></i></div>
+            <div class="hero__screen-frame" aria-hidden="true"></div>
+            <div class="hero__screen-clip">
+              <video
+                class="hero__video"
+                data-hero-video
+                data-src-lg="/media/video/hero-720.mp4"
+                data-src-sm="/media/video/hero-540.mp4"
+                poster="/media/img/hero-poster.webp"
+                muted
+                loop
+                playsinline
+                preload="none"
+                disableremoteplayback
+                tabindex="-1"
+                aria-hidden="true"
+              ></video>
+            </div>
+          </div>
+          <div class="hero__shade" aria-hidden="true"></div>
+
+          <p class="hero__corner hero__corner--tl slate" data-hero-fade>
+            <span class="rec" aria-hidden="true"></span>Miami Beach, Florida
+          </p>
+          <p class="hero__corner hero__corner--tr slate" data-hero-fade>
+            <span data-clock>Miami time</span>
+          </p>
+
+          <div class="hero__title">
+            <span class="hero__script script" data-hero-script aria-hidden="true">Vice City</span>
+            <h1 class="hero__word display" aria-label="Miami Aqua Experience">
+              <span class="hero__letters" aria-hidden="true"><span>M</span><span>i</span><span>a</span><span>m</span><span>i</span></span>
+            </h1>
+            <p class="hero__brand" aria-hidden="true"><i data-hero-rule></i><span data-hero-fade>Aqua Experience</span><i data-hero-rule></i></p>
+          </div>
+
+          <div class="hero__bottom">
+            <p class="hero__pitch" data-hero-fade>
+              Wake surf and eFoil sessions on Miami Beach waters. Two hours, one board, the whole skyline watching.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--primary" href="#book" data-book data-magnetic data-hero-fade>
+                <span>Book your session</span>
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <dl class="hero__facts" data-hero-fade>
+                <div>
+                  <dt class="slate">Session</dt>
+                  <dd><strong>$350</strong> <span>/ 2 hours</span></dd>
+                </div>
+                <div>
+                  <dt class="slate">Daily start times</dt>
+                  <dd class="hero__times"><span>9:30 AM</span><span>12:30 PM</span><span>3:30 PM</span></dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+          <a class="hero__scroll slate" href="#about" data-hero-fade aria-label="Scroll to the next section"><span>Scroll</span><i></i></a>
+        </div>
+      </section>
+
+      <div class="curtain" data-curtain>
+        <!-- ======================================================== MARQUEE -->
+        <div class="tape" aria-hidden="true">
+          <div class="tape__band tape__band--a" data-marquee="1">
+            <div class="tape__track">
+              <span>Wake Surf</span><b></b><span>E-Foil</span><b></b><span>Electric Surf</span><b></b><span>Miami Beach</span><b></b><span>2 Hours</span><b></b><span>$350</span><b></b>
+            </div>
+          </div>
+          <div class="tape__band tape__band--b" data-marquee="-1">
+            <div class="tape__track">
+              <span>9:30 AM</span><b></b><span>12:30 PM</span><b></b><span>3:30 PM</span><b></b><span>Every day</span><b></b><span>Book online</span><b></b>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================================================== INTRO -->
+        <section class="intro" id="about">
+          <header class="scene-head" data-reveal>
+            <span class="slate">Sc. 02</span><i></i><span class="slate">The pitch</span>
+          </header>
+
+          <p class="intro__statement display" data-statement>
+            Miami looks different from the water. Surf an endless wave behind the boat. Or lift off on an electric board and
+            <em class="script">fly</em> above it.
+          </p>
+
+          <div class="intro__grid">
+            <figure class="intro__card" data-reveal>
+              <blockquote>
+                <p>&ldquo;The Queen of Miami Beach Waters.&rdquo;</p>
+              </blockquote>
+              <figcaption>
+                <strong>Liz Vasquez</strong>
+                <span>Wakesurf &middot; eFoil &middot; Electric surf. Lessons, demos and sales in Miami Beach.</span>
+                <a class="link" href="https://www.instagram.com/miami.aquaexperience/" target="_blank" rel="noopener">
+                  @miami.aquaexperience
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow-ne" /></svg>
+                </a>
+              </figcaption>
+            </figure>
+
+            <dl class="stats">
+              <div class="stat" data-reveal>
+                <dt>on the water, every session</dt>
+                <dd><span data-count="2">2</span><small>hrs</small></dd>
+              </div>
+              <div class="stat" data-reveal>
+                <dt>per session, either ride</dt>
+                <dd><small>$</small><span data-count="350">350</span></dd>
+              </div>
+              <div class="stat" data-reveal>
+                <dt>start times a day</dt>
+                <dd><span data-count="3">3</span></dd>
+              </div>
+              <div class="stat" data-reveal>
+                <dt>following along on Instagram</dt>
+                <dd><span data-count="39">39</span><small>K+</small></dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <!-- ========================================================== RIDES -->
+        <section class="rides" id="rides">
+          <header class="scene-head" data-reveal>
+            <span class="slate">Sc. 03</span><i></i><span class="slate">Double feature</span>
+          </header>
+          <h2 class="section-title display" data-title>
+            <span class="script" aria-hidden="true">Now showing</span>
+            Pick your ride
+          </h2>
+
+          <div class="rides__grid">
+            <article class="ride ride--wake" data-ride="wakesurf">
+              <a class="poster" href="#book" data-book="wakesurf" data-cursor="Book" data-tilt aria-label="Book Wake Surfing">
+                <span class="poster__frame" aria-hidden="true"></span>
+                <span class="poster__media">
+                  <video
+                    data-lazy-video
+                    data-src="/media/video/wake.mp4"
+                    poster="/media/img/wake-poster.webp"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    disableremoteplayback
+                    tabindex="-1"
+                    aria-hidden="true"
+                  ></video>
+                </span>
+                <span class="poster__num display" aria-hidden="true">01</span>
+                <span class="poster__tag slate" aria-hidden="true">Feature 01</span>
+              </a>
+              <div class="ride__body">
+                <h3 class="ride__title display">Wake <span class="script">Surfing</span></h3>
+                <p class="ride__text">
+                  A wave that never ends. The boat builds it, you drop in a few feet behind, let go of the rope, and it is just you, the wave
+                  and the skyline. Some days the dolphins come too.
+                </p>
+                <dl class="ride__facts">
+                  <div><dt>Time on the water</dt><dd>2 hours</dd></div>
+                  <div><dt>Session</dt><dd>$350</dd></div>
+                  <div><dt>Starts</dt><dd>9:30 AM &middot; 12:30 PM &middot; 3:30 PM</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="#book" data-book="wakesurf" data-magnetic>
+                  <span>Book Wake Surfing</span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+              </div>
+            </article>
+
+            <article class="ride ride--foil" data-ride="efoil">
+              <a class="poster" href="#book" data-book="efoil" data-cursor="Book" data-tilt aria-label="Book E-Foil / E-Surf">
+                <span class="poster__frame" aria-hidden="true"></span>
+                <span class="poster__media">
+                  <video
+                    data-lazy-video
+                    data-src="/media/video/efoil.mp4"
+                    poster="/media/img/efoil-poster.webp"
+                    muted
+                    loop
+                    playsinline
+                    preload="none"
+                    disableremoteplayback
+                    tabindex="-1"
+                    aria-hidden="true"
+                  ></video>
+                </span>
+                <span class="poster__num display" aria-hidden="true">02</span>
+                <span class="poster__tag slate" aria-hidden="true">Feature 02</span>
+              </a>
+              <div class="ride__body">
+                <h3 class="ride__title display">E-Foil <span class="script">&amp; E-Surf</span></h3>
+                <p class="ride__text">
+                  Two electric boards, one remote in your hand. The eFoil rises out of the water and flies above it. The e-surf stays low and
+                  carves: stable, easy to handle, and you choose the speed.
+                </p>
+                <dl class="ride__facts">
+                  <div><dt>Time on the water</dt><dd>2 hours</dd></div>
+                  <div><dt>Session</dt><dd>$350</dd></div>
+                  <div><dt>Starts</dt><dd>9:30 AM &middot; 12:30 PM &middot; 3:30 PM</dd></div>
+                </dl>
+                <a class="btn btn--primary" href="#book" data-book="efoil" data-magnetic>
+                  <span>Book E-Foil / E-Surf</span>
+                  <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                </a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ========================================================= FLIGHT -->
+        <section class="flight" id="flight">
+          <div class="flight__inner">
+            <div class="flight__copy">
+              <header class="scene-head" data-reveal>
+                <span class="slate">Sc. 04</span><i></i><span class="slate">Flight school</span>
+              </header>
+              <h2 class="section-title display" data-title>
+                <span class="script" aria-hidden="true">Learn to</span>
+                Fly
+              </h2>
+              <p class="flight__lede" data-reveal>Real footage from one of our eFoil lessons, in four moves. Tap a move to replay it.</p>
+
+              <ol class="moves" data-moves>
+                <li>
+                  <button type="button" class="move" data-move="0">
+                    <span class="move__num">01</span>
+                    <span class="move__text"><strong>Belly</strong><span>Start flat on the board, remote in hand.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="move" data-move="1">
+                    <span class="move__num">02</span>
+                    <span class="move__text"><strong>Knees, then feet</strong><span>Come up to your knees. Stand when the board feels steady.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="move" data-move="2">
+                    <span class="move__num">03</span>
+                    <span class="move__text"><strong>Cruise</strong><span>Find your stance and ride on the surface.</span></span>
+                  </button>
+                </li>
+                <li>
+                  <button type="button" class="move" data-move="3">
+                    <span class="move__num">04</span>
+                    <span class="move__text"><strong>Lift off</strong><span>The board rises onto the foil and you are flying above the water.</span></span>
+                  </button>
+                </li>
+              </ol>
+            </div>
+
+            <div class="story" data-story data-chapters="0,2.94,6.75,9.38" data-duration="12.5">
+              <span class="story__frame" aria-hidden="true"></span>
+              <div class="story__media">
+                <video
+                  data-lazy-video
+                  data-story-video
+                  data-src="/media/video/flight.mp4"
+                  poster="/media/img/flight-poster.webp"
+                  muted
+                  loop
+                  playsinline
+                  preload="none"
+                  disableremoteplayback
+                  tabindex="-1"
+                  aria-label="An eFoil lesson: lying on the board, kneeling, standing, then flying above the water"
+                ></video>
+              </div>
+              <div class="story__bars" aria-hidden="true"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+              <div class="story__meta" aria-hidden="true">
+                <span class="story__avatar">M</span>
+                <span class="story__name">miami.aquaexperience</span>
+                <span class="story__label" data-story-label>Belly</span>
+              </div>
+              <button type="button" class="story__tap story__tap--prev" data-story-prev aria-label="Previous move"></button>
+              <button type="button" class="story__tap story__tap--next" data-story-next aria-label="Next move"></button>
+            </div>
+          </div>
+        </section>
+
+        <!-- =========================================================== REEL -->
+        <section class="reel" id="reel" data-reel>
+          <div class="reel__head">
+            <header class="scene-head" data-reveal>
+              <span class="slate">Sc. 05</span><i></i><span class="slate">The reel</span>
+            </header>
+            <h2 class="section-title display" data-title>
+              <span class="script" aria-hidden="true">Straight from</span>
+              The feed
+            </h2>
+            <p class="reel__lede" data-reveal>
+              Every photo and clip on this page comes from
+              <a class="link" href="https://www.instagram.com/miami.aquaexperience/" target="_blank" rel="noopener">@miami.aquaexperience</a>.
+              No stock footage.
+            </p>
+          </div>
+
+          <div class="reel__viewport" data-reel-viewport>
+            <ul class="reel__track" data-reel-track>
+              <li class="frame"><img src="/media/img/photo-neon-glasses.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Wakesurfer wearing glowing glasses carves the wave at dusk, Miami skyline behind" /><span class="frame__cap slate">Wakesurf at dusk</span></li>
+              <li class="frame frame--video">
+                <video data-lazy-video data-src="/media/video/reel-gopro.mp4" poster="/media/img/reel-gopro-poster.webp" muted loop playsinline preload="none" disableremoteplayback tabindex="-1" aria-label="Wakesurfing and eFoiling filmed from the board, straight into the sun"></video>
+                <span class="frame__cap slate">Into the sun</span>
+              </li>
+              <li class="frame"><img src="/media/img/photo-crew.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Four friends on the back of the boat holding a wakesurf board" /><span class="frame__cap slate">The crew</span></li>
+              <li class="frame"><img src="/media/img/photo-neon-board.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Wakesurfer and a small dog riding a glowing green board after sunset" /><span class="frame__cap slate">Night wave, with a co-pilot</span></li>
+              <li class="frame frame--video">
+                <video data-lazy-video data-src="/media/video/reel-esurf.mp4" poster="/media/img/reel-esurf-poster.webp" muted loop playsinline preload="none" disableremoteplayback tabindex="-1" aria-label="Rider on an electric surfboard heading towards the Miami skyline"></video>
+                <span class="frame__cap slate">E-surf, skyline ahead</span>
+              </li>
+              <li class="frame"><img src="/media/img/photo-birthday.webp" width="960" height="1280" loading="lazy" decoding="async" alt="A group celebrating on the boat with a birthday cake" /><span class="frame__cap slate">Birthday on board</span></li>
+              <li class="frame"><img src="/media/img/photo-board.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Guest standing on the swim platform with a wakesurf board" /><span class="frame__cap slate">Board check</span></li>
+              <li class="frame frame--video">
+                <video data-lazy-video data-src="/media/video/reel-wake.mp4" poster="/media/img/reel-wake-poster.webp" muted loop playsinline preload="none" disableremoteplayback tabindex="-1" aria-label="Wakesurfer carving and spinning on the wave behind the boat"></video>
+                <span class="frame__cap slate">Carving the wake</span>
+              </li>
+              <li class="frame"><img src="/media/img/photo-friends.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Two friends posing on the boat between rides" /><span class="frame__cap slate">Between rides</span></li>
+              <li class="frame"><img src="/media/img/photo-float.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Two guests floating on a wakesurf board in calm green water" /><span class="frame__cap slate">Floating</span></li>
+              <li class="frame"><img src="/media/img/photo-dogs.webp" width="960" height="1280" loading="lazy" decoding="async" alt="Two guests on the boat holding their dogs" /><span class="frame__cap slate">Boat dogs</span></li>
+              <li class="frame frame--cta">
+                <a href="https://www.instagram.com/miami.aquaexperience/" target="_blank" rel="noopener" data-cursor="Open">
+                  <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg>
+                  <span class="display">More on<br />Instagram</span>
+                  <span class="slate">@miami.aquaexperience</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- ======================================================== BOOKING -->
+        <section class="book" id="book" data-booking>
+          <div class="book__glow" aria-hidden="true"></div>
+          <div class="book__head">
+            <header class="scene-head" data-reveal>
+              <span class="slate">Sc. 06</span><i></i><span class="slate">Box office</span>
+            </header>
+            <h2 class="section-title display" data-title>
+              <span class="script" aria-hidden="true">Showtime</span>
+              Book your session
+            </h2>
+            <p class="book__lede" data-reveal>$350 covers one two-hour session. Choose your ride, your date and one of three daily start times.</p>
+          </div>
+
+          <div class="book__layout">
+            <div class="wizard" data-wizard>
+              <ol class="wizard__steps" data-steps aria-label="Booking steps">
+                <li><button type="button" data-step-tab="0"><i>1</i><span>Ride</span></button></li>
+                <li><button type="button" data-step-tab="1"><i>2</i><span>Date &amp; time</span></button></li>
+                <li><button type="button" data-step-tab="2"><i>3</i><span>Crew</span></button></li>
+                <li><button type="button" data-step-tab="3"><i>4</i><span>Confirm</span></button></li>
+              </ol>
+
+              <p class="wizard__notice" data-notice role="status" hidden></p>
+
+              <form class="wizard__form" data-form novalidate>
+                <!-- Step 1: ride -->
+                <fieldset class="step" data-step="0">
+                  <legend class="step__title display" tabindex="-1">Choose your ride</legend>
+                  <div class="options">
+                    <label class="option">
+                      <input type="radio" name="service" value="wakesurf" />
+                      <span class="option__card">
+                        <img src="/media/img/wake-poster.webp" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+                        <span class="option__body">
+                          <span class="option__name display">Wake Surfing</span>
+                          <span class="option__meta">2 hours &middot; $350</span>
+                        </span>
+                        <span class="option__check" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                      </span>
+                    </label>
+                    <label class="option">
+                      <input type="radio" name="service" value="efoil" />
+                      <span class="option__card">
+                        <img src="/media/img/efoil-poster.webp" width="720" height="1280" alt="" loading="lazy" decoding="async" />
+                        <span class="option__body">
+                          <span class="option__name display">E-Foil / E-Surf</span>
+                          <span class="option__meta">2 hours &middot; $350</span>
+                        </span>
+                        <span class="option__check" aria-hidden="true"><svg class="icon"><use href="#i-check" /></svg></span>
+                      </span>
+                    </label>
+                  </div>
+                  <p class="field-error" data-error="serviceId" role="alert"></p>
+                </fieldset>
+
+                <!-- Step 2: date and time -->
+                <fieldset class="step" data-step="1" hidden>
+                  <legend class="step__title display" tabindex="-1">Pick a date and start time</legend>
+                  <div class="when">
+                    <div class="calendar" data-calendar>
+                      <div class="calendar__head">
+                        <button type="button" class="calendar__nav" data-cal-prev aria-label="Previous month"><svg class="icon" aria-hidden="true"><use href="#i-left" /></svg></button>
+                        <p class="calendar__title display" data-cal-title aria-live="polite"></p>
+                        <button type="button" class="calendar__nav" data-cal-next aria-label="Next month"><svg class="icon" aria-hidden="true"><use href="#i-right" /></svg></button>
+                      </div>
+                      <div class="calendar__week" aria-hidden="true"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div>
+                      <div class="calendar__grid" data-cal-grid></div>
+                    </div>
+
+                    <div class="slots" data-slots>
+                      <p class="slots__title slate" data-slots-title>Pick a date to see start times</p>
+                      <div class="slots__list" data-slots-list></div>
+                      <p class="slots__note">All times are Miami time (ET). Each session runs two hours.</p>
+                    </div>
+                  </div>
+                  <p class="field-error" data-error="date" role="alert"></p>
+                  <p class="field-error" data-error="slotId" role="alert"></p>
+                </fieldset>
+
+                <!-- Step 3: crew -->
+                <fieldset class="step" data-step="2" hidden>
+                  <legend class="step__title display" tabindex="-1">Who is coming?</legend>
+
+                  <div class="field">
+                    <span class="field__label" id="guests-label">Number of people</span>
+                    <div class="stepper" role="group" aria-labelledby="guests-label">
+                      <button type="button" data-guests-minus aria-label="One person fewer"><svg class="icon" aria-hidden="true"><use href="#i-minus" /></svg></button>
+                      <output data-guests-value aria-live="polite">1</output>
+                      <button type="button" data-guests-plus aria-label="One person more"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></button>
+                    </div>
+                    <p class="field__hint" data-guests-hint></p>
+                  </div>
+
+                  <div class="field">
+                    <span class="field__label">Names</span>
+                    <div class="names" data-names></div>
+                    <p class="field-error" data-error="names" role="alert"></p>
+                  </div>
+
+                  <div class="field">
+                    <label class="field__label" for="phone">Phone number</label>
+                    <input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="(305) 555-0123" aria-describedby="phone-hint phone-error" />
+                    <p class="field__hint" id="phone-hint">So we can reach you about your session. Outside the US, start with + and your country code.</p>
+                    <p class="field-error" id="phone-error" data-error="phone" role="alert"></p>
+                  </div>
+                </fieldset>
+
+                <!-- Step 4: review -->
+                <fieldset class="step" data-step="3" hidden>
+                  <legend class="step__title display" tabindex="-1">Review and pay</legend>
+                  <dl class="review" data-review></dl>
+                  <div class="total">
+                    <span>Total due</span>
+                    <strong class="display" data-total>$350</strong>
+                  </div>
+                  <p class="pay-note" data-pay-note></p>
+                  <p class="field-error" data-error="form" role="alert"></p>
+                </fieldset>
+
+                <div class="wizard__nav">
+                  <button type="button" class="btn btn--ghost" data-back hidden>
+                    <svg class="icon" aria-hidden="true"><use href="#i-left" /></svg>
+                    <span>Back</span>
+                  </button>
+                  <button type="submit" class="btn btn--primary" data-next>
+                    <span data-next-label>Continue</span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Confirmation -->
+              <div class="done" data-done hidden>
+                <p class="done__flag" data-done-flag hidden></p>
+                <h3 class="done__title display" tabindex="-1" data-done-title>See you on the water</h3>
+                <p class="done__text" data-done-text></p>
+                <div class="ticket ticket--final" data-ticket-final></div>
+                <div class="done__actions">
+                  <button type="button" class="btn btn--primary" data-ics>
+                    <svg class="icon" aria-hidden="true"><use href="#i-calendar" /></svg>
+                    <span>Add to calendar</span>
+                  </button>
+                  <button type="button" class="btn btn--ghost" data-restart><span>Book another session</span></button>
+                </div>
+              </div>
+            </div>
+
+            <aside class="book__side" aria-label="Your booking so far">
+              <div class="ticket" data-ticket-live></div>
+              <p class="book__secure"><svg class="icon" aria-hidden="true"><use href="#i-lock" /></svg><span data-secure-text></span></p>
+            </aside>
+          </div>
+        </section>
+
+        <!-- ========================================================= FOOTER -->
+        <footer class="footer">
+          <div class="footer__sun" aria-hidden="true"></div>
+          <div class="footer__lockup" aria-hidden="true">
+            <span class="script">Vice City</span>
+            <span class="display">Miami</span>
+            <span class="footer__brand"><i></i>Aqua Experience<i></i></span>
+          </div>
+          <p class="credits">
+            <span>Miami Aqua Experience</span> presents <span>Wake Surfing</span> and <span>E-Foil / E-Surf</span> with <span>Liz Vasquez</span>
+            on location in <span>Miami Beach, Florida</span> daily at <span>9:30 AM</span> <span>12:30 PM</span> <span>3:30 PM</span> photos and video
+            <span>@miami.aquaexperience</span>
+          </p>
+          <div class="footer__bar">
+            <p>&copy; <span data-year>2026</span> Miami Aqua Experience</p>
+            <a class="link" href="https://www.instagram.com/miami.aquaexperience/" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg>
+              Instagram
+            </a>
+            <a class="link" href="#top">Back to top</a>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <!-- Sticky booking bar on small screens -->
+    <div class="dock" data-dock>
+      <p><strong>$350</strong> <span>/ 2-hour session</span></p>
+      <a class="btn btn--primary btn--small" href="#book" data-book>
+        <span>Book now</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+      </a>
+    </div>
+  </body>
+</html>
